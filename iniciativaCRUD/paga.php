@@ -11,7 +11,7 @@
         }  
         $dados = explode(";",$linha);
         fclose($arquivo);
-        print_r($dados);
+        //print_r($dados);
         $p =  count($dados)-5;
         $p1 = $p + 1;
         $p2 = $p + 2;
