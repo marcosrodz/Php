@@ -2,7 +2,7 @@
     include 'conecta.php';
     $id = $_GET['id'];
     $login = $_POST['login'];
-    $senha = $_POST['senha']
+    $senha = $_POST['senha'];
     if(!isset($_POST['tipo'])) {
         $tipo = 0;
     } else {
