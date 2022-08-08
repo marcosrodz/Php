@@ -1,7 +1,6 @@
 <?php
     if(!isset($_SESSION)) session_start();
-    if(!isset($_SESSION["user"]))
-    {
+    if(!isset($_SESSION["user"])) {
         session_destroy();
         header("Location: index.php");
         exit;
@@ -61,10 +60,8 @@
                         <?php
                             include 'conecta.php';
                             $query = mysqli_query($con, "SELECT * FROM produto");
-                            if($query->num_rows > 0)
-                            {
-                                while($produto = $query->fetch_array())
-                                {
+                            if($query->num_rows > 0) {
+                                while($produto = $query->fetch_array()) {
                                     $id = $produto['id'];
                                     echo '<tr>';
                                     echo '<th scope="row">'.$produto['id'].'</th>';
@@ -89,8 +86,7 @@
                                         <?php
                                             include 'conecta.php';
                                             $query2 = mysqli_query($con, "SELECT * FROM produto WHERE id=$id");
-                                            if($query2->num_rows > 0)
-                                            {
+                                            if($query2->num_rows > 0) {
                                                 while($produto2 = $query2->fetch_array())
                                                 {
                                                     $id = $produto2['id'];

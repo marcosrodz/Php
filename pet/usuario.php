@@ -1,7 +1,6 @@
 <?php
     if(!isset($_SESSION)) session_start();
-    if(!isset($_SESSION["user"]))
-    {
+    if(!isset($_SESSION["user"])) {
         session_destroy();
         header("Location: index.php");
         exit;
@@ -62,21 +61,17 @@
                         <?php
                             include 'conecta.php';
                             $query = mysqli_query($con, "SELECT * FROM usuario");
-                            if($query->num_rows > 0)
-                            {
-                                while($usuario = $query->fetch_array())
-                                {
+                            if($query->num_rows > 0) {
+                                while($usuario = $query->fetch_array()) {
                                     $id = $usuario['id'];
                                     $tipo = $usuario['tipo'];
                                     echo '<tr>';
                                     echo '<th scope="row">'.$usuario['id'].'</th>';
                                     echo '<td>'.$usuario['login'].'</td>';
-                                    if($tipo == 1)
-                                    {
+                                    if($tipo == 1) {
                                         echo '<td>Administrador</td>';
                                     }
-                                    else 
-                                    {
+                                    else {
                                         echo '<td>Normal</td>';
                                     }
                                     echo '<td><a href="#?id='.$id.'" data-bs-toggle="modal" data-bs-target="#editaUsuario'.$id.'"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -97,10 +92,8 @@
                                         <?php
                                             include 'conecta.php';
                                             $query2 = mysqli_query($con, "SELECT * FROM usuario WHERE id=$id");
-                                            if($query2->num_rows > 0)
-                                            {
-                                                while($usuario2 = $query2->fetch_array())
-                                                {
+                                            if($query2->num_rows > 0) {
+                                                while($usuario2 = $query2->fetch_array()) {
                                                     $id = $usuario2['id'];
                                                     $tipo = $usuario2['tipo'];
                                                     $login = $usuario2['login'];
@@ -118,12 +111,10 @@
                                             <label><b>Administrador</b></label>
                                             <br/>
                                             <?php 
-                                                if($tipo == 1)
-                                                {
+                                                if($tipo == 1) {
                                                     echo '<input class="form-check-input" type="checkbox" value="1" name="tipo" checked/>';
                                                 }
-                                                else
-                                                {
+                                                else {
                                                     echo '<input class="form-check-input" type="checkbox" value="1" name="tipo"/>';
                                                 }
                                             ?>

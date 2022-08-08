@@ -1,7 +1,6 @@
 <?php
     if(!isset($_SESSION)) session_start();
-    if(!isset($_SESSION["user"]))
-    {
+    if(!isset($_SESSION["user"])) {
         session_destroy();
         header("Location: index.php");
         exit;
@@ -71,10 +70,8 @@
                         <?php
                             include 'conecta.php';
                             $query = mysqli_query($con, "SELECT * FROM cliente");
-                            if($query->num_rows > 0)
-                            {
-                                while($cliente = $query->fetch_array())
-                                {
+                            if($query->num_rows > 0) {
+                                while($cliente = $query->fetch_array()) {
                                     $id = $cliente['id'];
                                     $image = $cliente['foto'];
                                     $image_src = "imagenspet/".$image;
@@ -102,10 +99,8 @@
                                         <?php
                                             include 'conecta.php';
                                             $query2 = mysqli_query($con, "SELECT * FROM cliente WHERE id=$id");
-                                            if($query2->num_rows > 0)
-                                            {
-                                                while($cliente2 = $query2->fetch_array())
-                                                {
+                                            if($query2->num_rows > 0) {
+                                                while($cliente2 = $query2->fetch_array()) {
                                                     $id = $cliente2['id'];
                                                     $nome = $cliente2['nome'];
                                                     $idade = $cliente2['idade'];
